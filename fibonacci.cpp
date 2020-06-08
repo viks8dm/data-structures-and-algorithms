@@ -9,16 +9,16 @@ get F[n] value of fibonacci series
 using namespace std;
 using namespace std::chrono;
 
+// naive implementation
 int fibonacci_naive(int n) {
     if (n <= 1)
         return n;
-
     return fibonacci_naive(n - 1) + fibonacci_naive(n - 2);
 }
 
+// efficient implementation
 int fibonacci_fast(int n) {
     int f[n+2];
-
     f[0] = 0;
     f[1] = 1;
     for (int i=2; i<=n; i++) {
@@ -27,6 +27,7 @@ int fibonacci_fast(int n) {
     return f[n];
 }
 
+// test function
 void test_solution() {
     assert(fibonacci_fast(3) == 2);
     assert(fibonacci_fast(10) == 55);
@@ -34,35 +35,39 @@ void test_solution() {
         assert(fibonacci_fast(n) == fibonacci_naive(n));
 }
 
+// main function
 int main() {
-    // // stress test
-    // while (true) {
-    //     int n = (rand() % 45) + 1;
+    bool stress_test = true;
+    
+    // stress test
+    while (stress_test) {
+        int n = (rand() % 45) + 1;
 
-    //     auto s1 = high_resolution_clock::now();
-    //     int res1 = fibonacci_naive(n);
-    //     auto st1 = high_resolution_clock::now(); 
-    //     auto d1 = duration_cast<microseconds>(st1 - s1); 
+        auto s1 = high_resolution_clock::now();
+        int res1 = fibonacci_naive(n);
+        auto st1 = high_resolution_clock::now(); 
+        auto d1 = duration_cast<microseconds>(st1 - s1); 
 
-    //     auto s2 = high_resolution_clock::now(); 
-    //     int res2 = fibonacci_fast(n);
-    //     auto st2 = high_resolution_clock::now(); 
-    //     auto d2 = duration_cast<microseconds>(st2 - s2); 
+        auto s2 = high_resolution_clock::now(); 
+        int res2 = fibonacci_fast(n);
+        auto st2 = high_resolution_clock::now(); 
+        auto d2 = duration_cast<microseconds>(st2 - s2); 
 
-    //     if (res1 != res2) {
-    //         cout << "wrong answer: " << res1 << ", " << res2 << endl;
-    //         break;
-    //     }
-    //     else {
-    //         cout << n << " (" << res1 << " / " << res2 << ")" << "  -- OK " << endl;
-    //         cout << " time: (" << d1.count() << " / " << d2.count() << ")" << endl;
-    //     }
-    // }
+        if (res1 != res2) {
+            cout << "wrong answer: " << res1 << ", " << res2 << endl;
+            break;
+        }
+        else {
+            cout << n << " (" << res1 << " / " << res2 << ")" << "  -- OK " << endl;
+            cout << " time: (" << d1.count() << " / " << d2.count() << ")" << endl;
+        }
+    }
+
+
 
     // main program
     int n = 0;
     std::cin >> n;
-
     // std::cout << fibonacci_naive(n) << '\n';
     // test_solution();
     std::cout << fibonacci_fast(n) << '\n';
