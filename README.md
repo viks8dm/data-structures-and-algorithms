@@ -5,3 +5,4 @@
 2. Fibonacci number
 3. Last digit of large Fibonacci number
 4. Greatest Common Divisor (GCD)
+5. Least Common Multiple (LCM)
