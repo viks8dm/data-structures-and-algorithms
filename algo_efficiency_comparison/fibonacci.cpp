@@ -1,7 +1,7 @@
 /*
 get F[n] value of fibonacci series
+n <= 45
 */
-
 #include <iostream>
 #include <cassert>
 #include <cstdlib>
@@ -37,8 +37,12 @@ void test_solution() {
 
 // main function
 int main() {
-    bool stress_test = true;
-    
+    // set params
+    bool stress_test = false;
+    bool use_naive = false;
+    bool test_fast = false;
+    bool use_fast = true;
+
     // stress test
     while (stress_test) {
         int n = (rand() % 45) + 1;
@@ -54,22 +58,32 @@ int main() {
         auto d2 = duration_cast<microseconds>(st2 - s2); 
 
         if (res1 != res2) {
-            cout << "wrong answer: " << res1 << ", " << res2 << endl;
+            cout << n << endl;
+            cout << "\twrong answer: " << res1 << ", " << res2 << endl;
             break;
         }
         else {
             cout << n << " (" << res1 << " / " << res2 << ")" << "  -- OK " << endl;
-            cout << " time: (" << d1.count() << " / " << d2.count() << ")" << endl;
+            cout << "\t OK: \t time: (" << d1.count() << " / " << d2.count() << ")" << endl;
         }
     }
 
+    // naive or fast solution
+    if (use_naive || use_fast) {
+        int a, b;
+        cin >> a >> b;
+        if (use_naive) {
+        cout << fibonacci_naive(a, b) << endl;
+        }
+        if (use_fast) {
+        cout << fibonacci_fast(a, b) << endl;
+        }
+    }
 
+    // test_solution
+    if (test_fast) {
+        test_solution();
+    }
 
-    // main program
-    int n = 0;
-    std::cin >> n;
-    // std::cout << fibonacci_naive(n) << '\n';
-    // test_solution();
-    std::cout << fibonacci_fast(n) << '\n';
     return 0;
 }
