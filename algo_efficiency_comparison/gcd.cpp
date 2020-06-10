@@ -1,5 +1,6 @@
 /*
-find greatest common divisor of two functions
+find greatest common divisor (GCD) of two numbers
+0 <= a, b <= 1e7
 */
 #include <iostream>
 #include <cassert>
@@ -37,12 +38,16 @@ void test_solution() {
 
 // main function
 int main() {
-  bool stress_test = true;
+  // set params
+  bool stress_test = false;
+  bool use_naive = false;
+  bool test_fast = false;
+  bool use_fast = true;
 
   // stress test
-  while (stress_test) {
-    int a = (rand() % 2000000000) + 1;
-    int b = (rand() % 2000000000) + 1;
+  while(stress_test) {
+    int a = (rand() % 10000000) + 1;
+    int b = (rand() % 10000000) + 1;
 
     auto s1 = high_resolution_clock::now();
     int res1 = gcd_naive(a, b);
@@ -63,13 +68,25 @@ int main() {
       cout << "(" << a << ", " << b << ")    (" << res1 << " / " << res2 << ")" << endl;
       cout << "\t OK: " << " time: (" << d1.count() << " / " << d2.count() << ")" << endl;
     }
+
   }
 
-  // main programs
-  int a, b;
-  std::cin >> a >> b;
-  std::cout << gcd_naive(a, b) << std::endl;
-  test_solution();
-  std::cout << gcd_fast(a, b) << std::endl;
+  // naive or fast solution
+  if (use_naive || use_fast) {
+    int a, b;
+    cin >> a >> b;
+    if (use_naive) {
+      cout << gcd_naive(a, b) << endl;
+    }
+    if (use_fast) {
+      cout << gcd_fast(a, b) << endl;
+    }
+  }
+
+  // test_solution
+  if (test_fast) {
+    test_solution();
+  }
+
   return 0;
 }
