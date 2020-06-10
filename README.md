@@ -1,8 +1,9 @@
 # Data-structures and Algorithms
 (my experiments with data-structures and algorithms)
 
-1. Maximum pairwise product
-2. Fibonacci number
-3. Last digit of large Fibonacci number
-4. Greatest Common Divisor (GCD)
-5. Least Common Multiple (LCM)
+## algo-efficiency-comparison[./algo_efficiency_comparison/]
+  * Maximum pairwise product
+  * Fibonacci number
+  * Last digit of large Fibonacci number
+  * Greatest Common Divisor (GCD)
+  * Least Common Multiple (LCM)
