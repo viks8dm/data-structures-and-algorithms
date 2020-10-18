@@ -1,29 +1,36 @@
-## algo-efficiency-comparison
+# algo-efficiency-comparison
 Comparison of naive vs fast implementation for following problems:
 
-#### Maximum pairwise product
+### Maximum pairwise product
 
 
 
-#### Fibonacci number
+### Fibonacci number
 Implement an efficient algorithm for computing
 Fibonacci numbers.
 
 `Aim:` Given an integer 𝑛, find the 𝑛th Fibonacci number 𝐹𝑛.
+
 `Input format:` The input consists of a single integer 𝑛.
+
 `Output Format:` Output 𝐹𝑛.
 
-`example: `
+example:
+
 `input:`
+
 10
+
 `output`
+
 55
 
-#### Last digit of large Fibonacci number
+
+### Last digit of large Fibonacci number
 
 
-#### Greatest Common Divisor (GCD)
+### Greatest Common Divisor (GCD)
 
 
-#### Least Common Multiple (LCM)
+### Least Common Multiple (LCM)
 
